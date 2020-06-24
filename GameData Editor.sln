@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GameData Editor", "GameData Editor.vbproj", "{CD072418-0EA6-4B47-A3DE-9D9CC3CACB3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD072418-0EA6-4B47-A3DE-9D9CC3CACB3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD072418-0EA6-4B47-A3DE-9D9CC3CACB3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD072418-0EA6-4B47-A3DE-9D9CC3CACB3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD072418-0EA6-4B47-A3DE-9D9CC3CACB3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFB0341C-65F3-4297-AA1B-8CA9787032EE}
+	EndGlobalSection
+EndGlobal

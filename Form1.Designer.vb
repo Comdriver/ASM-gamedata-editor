@@ -22,13 +22,15 @@ Partial Class MainForm
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RelaodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -103,6 +105,7 @@ Partial Class MainForm
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -134,7 +137,7 @@ Partial Class MainForm
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.OpenToolStripMenuItem, Me.SaveToolStripMenuItem, Me.RelaodToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.OpenToolStripMenuItem, Me.SaveToolStripMenuItem1, Me.SaveToolStripMenuItem, Me.RelaodToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -142,31 +145,43 @@ Partial Class MainForm
         'NewToolStripMenuItem
         '
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OpenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.OpenToolStripMenuItem.Text = "Open.."
+        '
+        'SaveToolStripMenuItem1
+        '
+        Me.SaveToolStripMenuItem1.Name = "SaveToolStripMenuItem1"
+        Me.SaveToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.SaveToolStripMenuItem1.Size = New System.Drawing.Size(190, 22)
+        Me.SaveToolStripMenuItem1.Text = "Save"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SaveToolStripMenuItem.Text = "Save.."
+        Me.SaveToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.SaveToolStripMenuItem.Text = "Save as.."
         '
         'RelaodToolStripMenuItem
         '
         Me.RelaodToolStripMenuItem.Name = "RelaodToolStripMenuItem"
-        Me.RelaodToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RelaodToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
+        Me.RelaodToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.RelaodToolStripMenuItem.Text = "Relaod"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EditToolStripMenuItem
@@ -179,24 +194,25 @@ Partial Class MainForm
         'ScanModToolStripMenuItem
         '
         Me.ScanModToolStripMenuItem.Name = "ScanModToolStripMenuItem"
-        Me.ScanModToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.ScanModToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ScanModToolStripMenuItem.Text = "Scan Folder.."
         '
         'ScanToolStripMenuItem
         '
         Me.ScanToolStripMenuItem.Name = "ScanToolStripMenuItem"
-        Me.ScanToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.ScanToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ScanToolStripMenuItem.Text = "Scan Mod.."
         '
         'ScanAllToolStripMenuItem
         '
         Me.ScanAllToolStripMenuItem.Name = "ScanAllToolStripMenuItem"
-        Me.ScanAllToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.ScanAllToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ScanAllToolStripMenuItem.Text = "Scan All.."
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
         '
@@ -420,15 +436,15 @@ Partial Class MainForm
         '
         'Column6
         '
-        DataGridViewCellStyle17.NullValue = "0"
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle7.NullValue = "0"
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column6.HeaderText = "Level"
         Me.Column6.Name = "Column6"
         '
         'Column7
         '
-        DataGridViewCellStyle18.NullValue = "0"
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle8.NullValue = "0"
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column7.HeaderText = "Points"
         Me.Column7.Name = "Column7"
         '
@@ -676,6 +692,7 @@ Partial Class MainForm
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(37, 42)
         Me.Button5.TabIndex = 8
+        Me.Button5.Text = "t"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button6
@@ -697,6 +714,11 @@ Partial Class MainForm
         Me.Button7.TabIndex = 10
         Me.Button7.Text = "v"
         Me.Button7.UseVisualStyleBackColor = True
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
         'MainForm
         '
@@ -821,4 +843,6 @@ Partial Class MainForm
     Friend WithEvents Button6 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents NewToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
 End Class

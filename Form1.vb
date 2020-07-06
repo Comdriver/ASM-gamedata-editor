@@ -84,6 +84,9 @@ Public Class MainForm
             ModName.Text = ""
             ModID.Text = ""
             CurrentFile = ""
+            Version = "1.1.0"
+            Application = "ark"
+
             HaveUnsavedData = False
             HaveData = False
             CreationDate.Text = DateTime.UtcNow.ToString("o")

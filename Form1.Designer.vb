@@ -24,8 +24,8 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,7 +54,8 @@ Partial Class MainForm
         Me.ModName = New System.Windows.Forms.ToolStripTextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.Status = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.Progress = New System.Windows.Forms.ToolStripProgressBar()
+        Me.Status2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusSplit = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.CreationDate = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -62,7 +63,7 @@ Partial Class MainForm
         Me.Creatures = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabEngrams = New System.Windows.Forms.TabPage()
@@ -194,19 +195,19 @@ Partial Class MainForm
         'ScanModToolStripMenuItem
         '
         Me.ScanModToolStripMenuItem.Name = "ScanModToolStripMenuItem"
-        Me.ScanModToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ScanModToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.ScanModToolStripMenuItem.Text = "Scan Folder.."
         '
         'ScanToolStripMenuItem
         '
         Me.ScanToolStripMenuItem.Name = "ScanToolStripMenuItem"
-        Me.ScanToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ScanToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.ScanToolStripMenuItem.Text = "Scan Mod.."
         '
         'ScanAllToolStripMenuItem
         '
         Me.ScanAllToolStripMenuItem.Name = "ScanAllToolStripMenuItem"
-        Me.ScanAllToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ScanAllToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.ScanAllToolStripMenuItem.Text = "Scan All.."
         '
         'AboutToolStripMenuItem
@@ -294,6 +295,7 @@ Partial Class MainForm
         'ModID
         '
         Me.ModID.Name = "ModID"
+        Me.ModID.ReadOnly = True
         Me.ModID.Size = New System.Drawing.Size(150, 25)
         '
         'ToolStripLabel2
@@ -310,7 +312,7 @@ Partial Class MainForm
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Status, Me.Progress, Me.ToolStripStatusLabel2, Me.CreationDate})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Status, Me.Status2, Me.ToolStripStatusSplit, Me.ToolStripStatusLabel2, Me.CreationDate})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 428)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(800, 22)
@@ -321,15 +323,21 @@ Partial Class MainForm
         '
         Me.Status.AutoSize = False
         Me.Status.Name = "Status"
-        Me.Status.Size = New System.Drawing.Size(125, 17)
+        Me.Status.Size = New System.Drawing.Size(150, 17)
         Me.Status.Text = "Ready"
         Me.Status.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Progress
+        'Status2
         '
-        Me.Progress.Name = "Progress"
-        Me.Progress.Size = New System.Drawing.Size(100, 16)
-        Me.Progress.Visible = False
+        Me.Status2.Name = "Status2"
+        Me.Status2.Size = New System.Drawing.Size(121, 17)
+        Me.Status2.Text = "ToolStripStatusLabel1"
+        '
+        'ToolStripStatusSplit
+        '
+        Me.ToolStripStatusSplit.Name = "ToolStripStatusSplit"
+        Me.ToolStripStatusSplit.Size = New System.Drawing.Size(283, 17)
+        Me.ToolStripStatusSplit.Spring = True
         '
         'ToolStripStatusLabel2
         '
@@ -341,7 +349,7 @@ Partial Class MainForm
         '
         Me.CreationDate.AutoSize = False
         Me.CreationDate.Name = "CreationDate"
-        Me.CreationDate.Size = New System.Drawing.Size(300, 17)
+        Me.CreationDate.Size = New System.Drawing.Size(180, 17)
         Me.CreationDate.Text = "date"
         Me.CreationDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -376,6 +384,8 @@ Partial Class MainForm
         '
         'Creatures
         '
+        Me.Creatures.AllowUserToAddRows = False
+        Me.Creatures.AllowUserToResizeRows = False
         Me.Creatures.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -389,27 +399,40 @@ Partial Class MainForm
         'Column1
         '
         Me.Column1.HeaderText = "NameTag"
+        Me.Column1.MinimumWidth = 30
         Me.Column1.Name = "Column1"
+        Me.Column1.Width = 150
         '
         'Column2
         '
         Me.Column2.HeaderText = "IsSpawnable"
+        Me.Column2.MinimumWidth = 30
         Me.Column2.Name = "Column2"
+        Me.Column2.Width = 80
         '
         'Column3
         '
         Me.Column3.HeaderText = "IsTameable"
+        Me.Column3.MinimumWidth = 30
         Me.Column3.Name = "Column3"
+        Me.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column3.Width = 80
         '
         'Column4
         '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column4.HeaderText = "ClassName"
+        Me.Column4.MinimumWidth = 30
         Me.Column4.Name = "Column4"
+        Me.Column4.Width = 85
         '
         'Column5
         '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column5.HeaderText = "Description"
+        Me.Column5.MinimumWidth = 30
         Me.Column5.Name = "Column5"
+        Me.Column5.Width = 85
         '
         'TabEngrams
         '
@@ -424,6 +447,8 @@ Partial Class MainForm
         '
         'Engrams
         '
+        Me.Engrams.AllowUserToAddRows = False
+        Me.Engrams.AllowUserToResizeRows = False
         Me.Engrams.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -436,32 +461,44 @@ Partial Class MainForm
         '
         'Column6
         '
-        DataGridViewCellStyle7.NullValue = "0"
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.NullValue = "0"
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle1
         Me.Column6.HeaderText = "Level"
+        Me.Column6.MinimumWidth = 30
         Me.Column6.Name = "Column6"
+        Me.Column6.Width = 64
         '
         'Column7
         '
-        DataGridViewCellStyle8.NullValue = "0"
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.NullValue = "0"
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column7.HeaderText = "Points"
+        Me.Column7.MinimumWidth = 30
         Me.Column7.Name = "Column7"
+        Me.Column7.Width = 64
         '
         'Column8
         '
         Me.Column8.HeaderText = "IsTekGram"
+        Me.Column8.MinimumWidth = 30
         Me.Column8.Name = "Column8"
+        Me.Column8.Width = 80
         '
         'Column9
         '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column9.HeaderText = "ClassName"
+        Me.Column9.MinimumWidth = 30
         Me.Column9.Name = "Column9"
+        Me.Column9.Width = 85
         '
         'Column10
         '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column10.HeaderText = "Description"
+        Me.Column10.MinimumWidth = 30
         Me.Column10.Name = "Column10"
+        Me.Column10.Width = 85
         '
         'TabItems
         '
@@ -476,6 +513,8 @@ Partial Class MainForm
         '
         'Items
         '
+        Me.Items.AllowUserToAddRows = False
+        Me.Items.AllowUserToResizeRows = False
         Me.Items.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -489,22 +528,32 @@ Partial Class MainForm
         'Column11
         '
         Me.Column11.HeaderText = "Category"
+        Me.Column11.MinimumWidth = 30
         Me.Column11.Name = "Column11"
+        Me.Column11.Width = 150
         '
         'Column12
         '
         Me.Column12.HeaderText = "IsHarvestable"
+        Me.Column12.MinimumWidth = 30
         Me.Column12.Name = "Column12"
+        Me.Column12.Width = 80
         '
         'Column13
         '
+        Me.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column13.HeaderText = "ClassName"
+        Me.Column13.MinimumWidth = 30
         Me.Column13.Name = "Column13"
+        Me.Column13.Width = 85
         '
         'Column14
         '
+        Me.Column14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column14.HeaderText = "Description"
+        Me.Column14.MinimumWidth = 30
         Me.Column14.Name = "Column14"
+        Me.Column14.Width = 85
         '
         'TabMapSpawns
         '
@@ -519,6 +568,8 @@ Partial Class MainForm
         '
         'MapSpawns
         '
+        Me.MapSpawns.AllowUserToAddRows = False
+        Me.MapSpawns.AllowUserToResizeRows = False
         Me.MapSpawns.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -531,13 +582,19 @@ Partial Class MainForm
         '
         'Column15
         '
+        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column15.HeaderText = "ClassName"
+        Me.Column15.MinimumWidth = 30
         Me.Column15.Name = "Column15"
+        Me.Column15.Width = 85
         '
         'Column16
         '
+        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column16.HeaderText = "Description"
+        Me.Column16.MinimumWidth = 30
         Me.Column16.Name = "Column16"
+        Me.Column16.Width = 85
         '
         'TabCrates
         '
@@ -552,6 +609,8 @@ Partial Class MainForm
         '
         'SupplyCrates
         '
+        Me.SupplyCrates.AllowUserToAddRows = False
+        Me.SupplyCrates.AllowUserToResizeRows = False
         Me.SupplyCrates.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -564,13 +623,19 @@ Partial Class MainForm
         '
         'Column17
         '
+        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column17.HeaderText = "ClassName"
+        Me.Column17.MinimumWidth = 30
         Me.Column17.Name = "Column17"
+        Me.Column17.Width = 85
         '
         'Column18
         '
+        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column18.HeaderText = "Description"
+        Me.Column18.MinimumWidth = 30
         Me.Column18.Name = "Column18"
+        Me.Column18.Width = 85
         '
         'TabInventories
         '
@@ -585,6 +650,8 @@ Partial Class MainForm
         '
         'Inventories
         '
+        Me.Inventories.AllowUserToAddRows = False
+        Me.Inventories.AllowUserToResizeRows = False
         Me.Inventories.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -597,13 +664,19 @@ Partial Class MainForm
         '
         'Column19
         '
+        Me.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column19.HeaderText = "ClassName"
+        Me.Column19.MinimumWidth = 30
         Me.Column19.Name = "Column19"
+        Me.Column19.Width = 85
         '
         'Column20
         '
+        Me.Column20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column20.HeaderText = "Description"
+        Me.Column20.MinimumWidth = 30
         Me.Column20.Name = "Column20"
+        Me.Column20.Width = 85
         '
         'TabGameMaps
         '
@@ -618,6 +691,8 @@ Partial Class MainForm
         '
         'GameMaps
         '
+        Me.GameMaps.AllowUserToAddRows = False
+        Me.GameMaps.AllowUserToResizeRows = False
         Me.GameMaps.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -631,17 +706,25 @@ Partial Class MainForm
         'Column21
         '
         Me.Column21.HeaderText = "IsSotF"
+        Me.Column21.MinimumWidth = 30
         Me.Column21.Name = "Column21"
+        Me.Column21.Width = 80
         '
         'Column22
         '
+        Me.Column22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column22.HeaderText = "ClassName"
+        Me.Column22.MinimumWidth = 30
         Me.Column22.Name = "Column22"
+        Me.Column22.Width = 85
         '
         'Column23
         '
+        Me.Column23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column23.HeaderText = "Description"
+        Me.Column23.MinimumWidth = 30
         Me.Column23.Name = "Column23"
+        Me.Column23.Width = 85
         '
         'OpenFileDialog1
         '
@@ -784,7 +867,6 @@ Partial Class MainForm
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents Status As ToolStripStatusLabel
-    Friend WithEvents Progress As ToolStripProgressBar
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabCreatures As TabPage
     Friend WithEvents TabEngrams As TabPage
@@ -806,35 +888,12 @@ Partial Class MainForm
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents Creatures As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewCheckBoxColumn
-    Friend WithEvents Column3 As DataGridViewCheckBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Engrams As DataGridView
     Friend WithEvents Items As DataGridView
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewCheckBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
     Friend WithEvents MapSpawns As DataGridView
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
-    Friend WithEvents Column16 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewCheckBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents SupplyCrates As DataGridView
-    Friend WithEvents Column17 As DataGridViewTextBoxColumn
-    Friend WithEvents Column18 As DataGridViewTextBoxColumn
     Friend WithEvents Inventories As DataGridView
-    Friend WithEvents Column19 As DataGridViewTextBoxColumn
-    Friend WithEvents Column20 As DataGridViewTextBoxColumn
     Friend WithEvents GameMaps As DataGridView
-    Friend WithEvents Column21 As DataGridViewCheckBoxColumn
-    Friend WithEvents Column22 As DataGridViewTextBoxColumn
-    Friend WithEvents Column23 As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
@@ -845,4 +904,29 @@ Partial Class MainForm
     Friend WithEvents NewToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents Status2 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusSplit As ToolStripStatusLabel
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewCheckBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewCheckBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewCheckBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Column17 As DataGridViewTextBoxColumn
+    Friend WithEvents Column18 As DataGridViewTextBoxColumn
+    Friend WithEvents Column19 As DataGridViewTextBoxColumn
+    Friend WithEvents Column20 As DataGridViewTextBoxColumn
+    Friend WithEvents Column21 As DataGridViewCheckBoxColumn
+    Friend WithEvents Column22 As DataGridViewTextBoxColumn
+    Friend WithEvents Column23 As DataGridViewTextBoxColumn
 End Class

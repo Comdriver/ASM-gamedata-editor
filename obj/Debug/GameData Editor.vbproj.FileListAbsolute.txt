@@ -3,9 +3,9 @@ C:\Users\workbee\source\repos\GameData Editor\bin\Debug\GameData Editor.exe
 C:\Users\workbee\source\repos\GameData Editor\bin\Debug\GameData Editor.pdb
 C:\Users\workbee\source\repos\GameData Editor\bin\Debug\GameData Editor.xml
 C:\Users\workbee\source\repos\GameData Editor\obj\Debug\GameData Editor.vbprojAssemblyReference.cache
-C:\Users\workbee\source\repos\GameData Editor\obj\Debug\GameData_Editor.Resources.resources
 C:\Users\workbee\source\repos\GameData Editor\obj\Debug\GameData Editor.vbproj.GenerateResource.cache
 C:\Users\workbee\source\repos\GameData Editor\obj\Debug\GameData Editor.exe
 C:\Users\workbee\source\repos\GameData Editor\obj\Debug\GameData Editor.xml
 C:\Users\workbee\source\repos\GameData Editor\obj\Debug\GameData Editor.pdb
-C:\Users\workbee\source\repos\GameData Editor\obj\Debug\GameData_Editor.MainForm.resources
+C:\Users\workbee\source\repos\GameData Editor\obj\Debug\GameDataEditor.MainForm.resources
+C:\Users\workbee\source\repos\GameData Editor\obj\Debug\GameDataEditor.Resources.resources

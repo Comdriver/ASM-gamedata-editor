@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CD072418-0EA6-4B47-A3DE-9D9CC3CACB3A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>GameData_Editor.My.MyApplication</StartupObject>
-    <RootNamespace>GameData_Editor</RootNamespace>
+    <StartupObject>GameDataEditor.My.MyApplication</StartupObject>
+    <RootNamespace>GameDataEditor</RootNamespace>
     <AssemblyName>GameData Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
@@ -45,6 +45,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Papirus-Team-Papirus-Apps-Ark-game.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -117,6 +120,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Papirus-Team-Papirus-Apps-Ark-game.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
